@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-27
 
 ### Added
 
@@ -16,3 +16,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Scene actions: compute a route between any two places now, read a trip now; both return travel time, delay, distance, route, departure and arrival times and a summary sentence.
 - Dashboard widgets: travel times of the trips (with delay badges, HERE WeGo links and a refresh button), one trip, requests of the month.
 - English, French, German and Spanish everywhere: settings, devices, widgets, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-here-travel-time/releases/tag/v0.1.0
