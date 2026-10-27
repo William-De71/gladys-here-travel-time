@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Cover of the HERE Travel Time integration for Gladys Assistant
+       (illustration, no HERE logo). Built into cover.jpg by
+       scripts/build-cover.sh. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f4f3"/>
+      <stop offset="1" stop-color="#e3eef8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f7fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#bg)"/>
+
+  <!-- map: blocks, a river, a park -->
+  <g opacity="0.9">
+    <path d="M0 360 C 150 330, 250 420, 420 390 S 700 330, 800 370 L 800 410 C 700 372, 560 440, 420 430 S 150 372, 0 400 Z" fill="#b9d8f2"/>
+    <rect x="560" y="60" width="150" height="90" rx="14" fill="#cfe8c6"/>
+    <g fill="#dde3ea">
+      <rect x="40" y="40" width="120" height="70" rx="8"/>
+      <rect x="180" y="40" width="90" height="70" rx="8"/>
+      <rect x="40" y="130" width="90" height="80" rx="8"/>
+      <rect x="610" y="190" width="140" height="90" rx="8"/>
+      <rect x="60" y="440" width="140" height="70" rx="8"/>
+      <rect x="600" y="440" width="160" height="70" rx="8"/>
+    </g>
+  </g>
+  <!-- streets -->
+  <g stroke="#ffffff" stroke-width="16" fill="none" stroke-linecap="round">
+    <path d="M0 120 H 800"/>
+    <path d="M300 0 V 534"/>
+    <path d="M0 300 L 800 250"/>
+    <path d="M540 0 L 590 534"/>
+  </g>
+
+  <!-- the route: green, then orange (traffic), then green -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12">
+    <path d="M110 260 C 180 260, 220 210, 300 200" stroke="#2f9e5a"/>
+    <path d="M300 200 C 380 190, 420 300, 500 290" stroke="#f29d38"/>
+    <path d="M500 290 C 570 282, 600 200, 680 180" stroke="#d64545"/>
+  </g>
+  <!-- a public transport line: dashed, with its stops -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M110 260 C 160 330, 300 330, 420 300 S 620 240, 680 180" stroke="#12877e" stroke-width="7" stroke-dasharray="2 14"/>
+  </g>
+  <g fill="#ffffff" stroke="#12877e" stroke-width="5">
+    <circle cx="250" cy="318" r="9"/>
+    <circle cx="560" cy="262" r="9"/>
+  </g>
+  <!-- bus -->
+  <g transform="translate(180 302) rotate(18)">
+    <rect x="-26" y="-18" width="52" height="34" rx="8" fill="#12877e"/>
+    <rect x="-20" y="-12" width="40" height="12" rx="3" fill="#bfe9e5"/>
+    <circle cx="-14" cy="17" r="5" fill="#1f2d3d"/>
+    <circle cx="14" cy="17" r="5" fill="#1f2d3d"/>
+  </g>
+  <!-- start and end pins -->
+  <circle cx="110" cy="260" r="16" fill="#ffffff" stroke="#2a5ea8" stroke-width="6"/>
+  <g transform="translate(680 180)">
+    <path d="M0 0 C -26 -30, -26 -60, 0 -66 C 26 -60, 26 -30, 0 0 Z" fill="#d64545"/>
+    <circle cx="0" cy="-44" r="10" fill="#ffffff"/>
+  </g>
+  <!-- car -->
+  <g transform="translate(400 248) rotate(28)">
+    <rect x="-30" y="-16" width="60" height="32" rx="10" fill="#2a5ea8"/>
+    <rect x="-14" y="-12" width="22" height="24" rx="5" fill="#9cc3f0"/>
+  </g>
+
+  <!-- card -->
+  <g transform="translate(250 330)">
+    <rect width="300" height="150" rx="20" fill="url(#card)" stroke="#d6dde6" stroke-width="2"/>
+    <circle cx="52" cy="58" r="24" fill="none" stroke="#2a5ea8" stroke-width="6"/>
+    <path d="M52 44 V 58 L 62 66" fill="none" stroke="#2a5ea8" stroke-width="6" stroke-linecap="round"/>
+    <text x="96" y="74" font-family="DejaVu Sans, Arial, sans-serif" font-size="46" font-weight="700" fill="#1f2d3d">38 min</text>
+    <rect x="96" y="92" width="96" height="34" rx="17" fill="#fde2e2"/>
+    <text x="144" y="116" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#b42d2d">+14 min</text>
+    <text x="208" y="116" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" fill="#5b6b7c">11.8 km</text>
+  </g>
+
+  <!-- title -->
+  <text x="400" y="56" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="40" font-weight="700" fill="#1f2d3d">HERE Travel Time</text>
+  <text x="400" y="92" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" fill="#3b4a5a">for Gladys Assistant</text>
+</svg>

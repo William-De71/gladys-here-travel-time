@@ -1,0 +1,47 @@
+name: Bug report
+description: Something does not work as described in the documentation.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Your addresses are personal: replace them if you wish (never paste your API key).
+  - type: input
+    id: gladys-version
+    attributes:
+      label: Gladys version
+      description: Settings → System.
+      placeholder: '5.1.1'
+    validations:
+      required: true
+  - type: input
+    id: integration-version
+    attributes:
+      label: Integration version
+      description: Integrations → HERE Travel Time, or Settings → Supervision.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: textarea
+    id: trips
+    attributes:
+      label: Result of "List the trips"
+      description: The text shown under the "List the trips" button (schedule, requests of the month, last reading and last error of each trip). Hide the addresses if you wish.
+      render: text
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Logs of the integration (Settings → Supervision). In developer mode, add the environment variable `DEBUG=gladys-integration-sdk` for the SDK debug logs, reproduce, then copy the lines. Hide your addresses if you wish; the logs never contain the API key.
+      render: text

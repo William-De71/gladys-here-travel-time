@@ -1,0 +1,1947 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "HERE Travel Time",
+  "description": {
+    "en": "Travel times with live traffic from HERE: car, truck, transit, delay, scenes, widgets.",
+    "fr": "Temps de trajet avec trafic HERE : voiture, camion, transports, retard, scènes.",
+    "de": "Fahrzeiten mit Live-Verkehr von HERE: Auto, Lkw, ÖPNV, Verzögerung, Szenen.",
+    "es": "Tiempos de trayecto con tráfico de HERE: coche, camión, transporte, retraso."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-here-travel-time:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "categories": ["transport"],
+  "keywords": [
+    "here",
+    "here wego",
+    "here maps",
+    "traffic",
+    "trafic",
+    "temps de trajet",
+    "commute",
+    "transports en commun",
+    "itinéraire",
+    "bouchons"
+  ],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-here-travel-time/main/cover.jpg",
+  "transports": ["cloud"],
+  "location": true,
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "HERE Travel Time",
+        "fr": "HERE Travel Time",
+        "de": "HERE Travel Time",
+        "es": "HERE Travel Time"
+      },
+      "description": {
+        "en": "How it works:\n1. Create a free account on platform.here.com (Base plan: a payment method is asked, the free usage is not billed), register an app in the Access Manager, create an API key in its Credentials tab and paste it below.\n2. Declare each trip with “Add a trip”: from, to, travel mode, days and hours.\n3. In the Discover tab, add the trip: it becomes a device (travel time, traffic delay, distance, route).\n4. Add the widgets and use the scenes.\nCost: one request per reading. Free each month: 5,000 by car with traffic, truck, scooter and public transport; 30,000 by car without traffic, bicycle and walking; 30,000 geocodings (once per address). By default the integration stays within 90 % and stretches the intervals. The places are sent to HERE.",
+        "fr": "Comment ça marche :\n1. Créez un compte gratuit sur platform.here.com (plan Base : un moyen de paiement est demandé, l’usage gratuit n’est pas facturé), enregistrez une application dans l’Access Manager, créez une clé d’API dans son onglet Credentials et collez-la ci-dessous.\n2. Déclarez chaque trajet avec « Ajouter un trajet » : départ, arrivée, mode, jours et heures.\n3. Dans l’onglet Découverte, ajoutez le trajet : il devient un appareil (durée, retard, distance, itinéraire).\n4. Ajoutez les widgets et utilisez les scènes.\nCoût : une requête par mesure. Gratuit chaque mois : 5 000 en voiture avec trafic, camion, scooter et transports en commun ; 30 000 en voiture sans trafic, vélo et marche ; 30 000 géocodages (une fois par adresse). Par défaut, l’intégration reste sous 90 % et allonge les intervalles. Les lieux sont envoyés à HERE.",
+        "de": "So funktioniert es:\n1. Erstellen Sie ein kostenloses Konto auf platform.here.com (Base-Tarif: Ein Zahlungsmittel wird verlangt, das Gratiskontingent wird nicht berechnet), registrieren Sie im Access Manager eine App, erstellen Sie im Tab Credentials einen API-Schlüssel und fügen Sie ihn unten ein.\n2. Legen Sie jede Strecke mit „Strecke hinzufügen“ an: Start, Ziel, Art, Tage und Uhrzeiten.\n3. Fügen Sie die Strecke im Tab Entdecken hinzu: Sie wird ein Gerät (Fahrzeit, Verzögerung, Entfernung, Route).\n4. Nutzen Sie die Widgets und Szenen.\nKosten: eine Anfrage pro Messung. Kostenlos pro Monat: 5.000 per Auto mit Verkehr, Lkw, Roller und ÖPNV; 30.000 per Auto ohne Verkehr, Fahrrad und zu Fuß; 30.000 Geocodierungen (einmal pro Adresse). Standardmäßig bleibt die Integration unter 90 % und streckt die Intervalle. Die Orte werden an HERE gesendet.",
+        "es": "Cómo funciona:\n1. Cree una cuenta gratuita en platform.here.com (plan Base: se pide un método de pago, el uso gratuito no se factura), registre una aplicación en el Access Manager, cree una clave de API en su pestaña Credentials y péguela abajo.\n2. Declare cada trayecto con «Añadir un trayecto»: origen, destino, modo, días y horas.\n3. En la pestaña Descubrir, añada el trayecto: se convierte en un dispositivo (duración, retraso, distancia, ruta).\n4. Añada los widgets y use las escenas.\nCoste: una solicitud por medida. Gratis cada mes: 5000 en coche con tráfico, camión, scooter y transporte público; 30 000 en coche sin tráfico, bicicleta y a pie; 30 000 geocodificaciones (una vez por dirección). Por defecto la integración se queda bajo el 90 % y alarga los intervalos. Los lugares se envían a HERE."
+      },
+      "links": [
+        {
+          "url": "https://platform.here.com/admin/apps",
+          "label": {
+            "en": "HERE platform: apps and API keys",
+            "fr": "Plateforme HERE : applications et clés d’API",
+            "de": "HERE-Plattform: Apps und API-Schlüssel",
+            "es": "Plataforma HERE: aplicaciones y claves de API"
+          }
+        },
+        {
+          "url": "https://www.here.com/get-started/pricing",
+          "label": {
+            "en": "HERE pricing (Base plan)",
+            "fr": "Tarifs HERE (plan Base)",
+            "de": "HERE-Preise (Base-Tarif)",
+            "es": "Precios de HERE (plan Base)"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-here-travel-time/blob/main/docs/fr.md",
+          "label": {
+            "en": "Documentation (French)",
+            "fr": "Documentation",
+            "de": "Dokumentation (Französisch)",
+            "es": "Documentación (francés)"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-here-travel-time/blob/main/docs/en.md",
+          "label": {
+            "en": "Documentation",
+            "fr": "Documentation (anglais)",
+            "de": "Dokumentation (Englisch)",
+            "es": "Documentación (inglés)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key",
+      "type": "secret",
+      "required": true,
+      "label": {
+        "en": "HERE API key",
+        "fr": "Clé d’API HERE",
+        "de": "HERE-API-Schlüssel",
+        "es": "Clave de API de HERE"
+      },
+      "description": {
+        "en": "An API key of an app of your HERE platform account (Access Manager → Apps → your app → Credentials → API Keys). Sent to HERE only, never shown again.",
+        "fr": "Une clé d’API d’une application de votre compte de la plateforme HERE (Access Manager → Apps → votre application → Credentials → API Keys). Envoyée à HERE uniquement, jamais réaffichée.",
+        "de": "Ein API-Schlüssel einer App Ihres HERE-Plattform-Kontos (Access Manager → Apps → Ihre App → Credentials → API Keys). Wird nur an HERE gesendet und nie wieder angezeigt.",
+        "es": "Una clave de API de una aplicación de su cuenta de la plataforma HERE (Access Manager → Apps → su aplicación → Credentials → API Keys). Solo se envía a HERE y nunca se vuelve a mostrar."
+      },
+      "placeholder": {
+        "en": "HERE API key",
+        "fr": "Clé d’API HERE",
+        "de": "HERE-API-Schlüssel",
+        "es": "Clave de API de HERE"
+      }
+    },
+    {
+      "key": "refresh_minutes",
+      "type": "number",
+      "min": 5,
+      "max": 240,
+      "label": {
+        "en": "Default interval (minutes)",
+        "fr": "Intervalle par défaut (minutes)",
+        "de": "Standardintervall (Minuten)",
+        "es": "Intervalo por defecto (minutos)"
+      },
+      "default": 15,
+      "placeholder": {
+        "en": "15",
+        "fr": "15",
+        "de": "15",
+        "es": "15"
+      },
+      "description": {
+        "en": "How often a trip without its own interval is read, within its hours (5 to 240).",
+        "fr": "La fréquence de mesure d’un trajet sans intervalle propre, dans ses heures (5 à 240).",
+        "de": "Wie oft eine Strecke ohne eigenes Intervall innerhalb ihrer Uhrzeiten gemessen wird (5 bis 240).",
+        "es": "Con qué frecuencia se mide un trayecto sin intervalo propio, dentro de sus horas (5 a 240)."
+      }
+    },
+    {
+      "key": "delay_threshold",
+      "type": "number",
+      "min": 1,
+      "max": 240,
+      "label": {
+        "en": "Default delay threshold (minutes)",
+        "fr": "Seuil de retard par défaut (minutes)",
+        "de": "Standard-Verzögerungsschwelle (Minuten)",
+        "es": "Umbral de retraso por defecto (minutos)"
+      },
+      "default": 10,
+      "placeholder": {
+        "en": "10",
+        "fr": "10",
+        "de": "10",
+        "es": "10"
+      },
+      "description": {
+        "en": "From this traffic delay, a trip without its own threshold shows in red in the widgets (orange from 3 minutes).",
+        "fr": "À partir de ce retard, un trajet sans seuil propre s’affiche en rouge dans les widgets (orange dès 3 minutes).",
+        "de": "Ab dieser Verzögerung wird eine Strecke ohne eigene Schwelle in den Widgets rot angezeigt (orange ab 3 Minuten).",
+        "es": "A partir de este retraso, un trayecto sin umbral propio se muestra en rojo en los widgets (naranja desde 3 minutos)."
+      }
+    },
+    {
+      "key": "budget_percent",
+      "type": "number",
+      "min": 1,
+      "max": 1000,
+      "label": {
+        "en": "Monthly budget (% of the free usage)",
+        "fr": "Budget mensuel (% de l’usage gratuit)",
+        "de": "Monatsbudget (% des Gratiskontingents)",
+        "es": "Presupuesto mensual (% del uso gratuito)"
+      },
+      "default": 90,
+      "placeholder": {
+        "en": "90",
+        "fr": "90",
+        "de": "90",
+        "es": "90"
+      },
+      "description": {
+        "en": "Share of the free monthly usage of each request type the integration may spend: 90 keeps a margin (HERE counts the other apps of the account too). Above 100, HERE bills the extra requests.",
+        "fr": "Part de l’usage mensuel gratuit de chaque type de requête que l’intégration peut dépenser : 90 garde une marge (HERE compte aussi les autres applications du compte). Au-delà de 100, HERE facture les requêtes en plus.",
+        "de": "Anteil des kostenlosen Monatskontingents jeder Anfrageart, den die Integration verbrauchen darf: 90 lässt einen Puffer (HERE zählt auch die anderen Apps des Kontos). Über 100 berechnet HERE die zusätzlichen Anfragen.",
+        "es": "Parte del uso mensual gratuito de cada tipo de solicitud que la integración puede gastar: 90 deja un margen (HERE cuenta también las otras aplicaciones de la cuenta). Por encima de 100, HERE factura las solicitudes adicionales."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Feature names, route texts, scene summaries, messages of the buttons and the language asked from HERE. Automatic: the language of your dashboard once a widget has been shown, guessed from the timezone of Gladys before that.",
+        "fr": "Noms des fonctionnalités, textes d’itinéraire, résumés des scènes, messages des boutons et langue demandée à HERE. Automatique : la langue de votre tableau de bord dès qu’un widget a été affiché, devinée d’après le fuseau horaire de Gladys avant cela.",
+        "de": "Funktionsnamen, Routentexte, Szenen-Zusammenfassungen, Meldungen der Schaltflächen und die bei HERE angefragte Sprache. Automatisch: die Sprache Ihres Dashboards, sobald ein Widget angezeigt wurde, vorher aus der Zeitzone von Gladys abgeleitet.",
+        "es": "Nombres de las funciones, textos de ruta, resúmenes de escenas, mensajes de los botones e idioma pedido a HERE. Automático: el idioma de su panel en cuanto se haya mostrado un widget, deducido de la zona horaria de Gladys antes de eso."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "add_trip",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Add a trip",
+        "fr": "Ajouter un trajet",
+        "de": "Strecke hinzufügen",
+        "es": "Añadir un trayecto"
+      },
+      "description": {
+        "en": "A trip to follow: from, to, travel mode, and when to read it. The addresses are checked with HERE at once.",
+        "fr": "Un trajet à suivre : départ, arrivée, mode de déplacement, et quand le mesurer. Les adresses sont vérifiées auprès de HERE aussitôt.",
+        "de": "Eine zu verfolgende Strecke: Start, Ziel, Fortbewegungsart und wann sie gemessen wird. Die Adressen werden sofort bei HERE geprüft.",
+        "es": "Un trayecto que seguir: origen, destino, modo de transporte y cuándo medirlo. Las direcciones se comprueban con HERE al momento."
+      },
+      "fields": [
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Name",
+            "fr": "Nom",
+            "de": "Name",
+            "es": "Nombre"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "Work",
+            "fr": "Travail",
+            "de": "Arbeit",
+            "es": "Trabajo"
+          },
+          "description": {
+            "en": "Shown as the device name, in the widgets and in the scenes (60 characters at most).",
+            "fr": "Affiché comme nom de l’appareil, dans les widgets et dans les scènes (60 caractères au maximum).",
+            "de": "Wird als Gerätename, in den Widgets und in den Szenen angezeigt (höchstens 60 Zeichen).",
+            "es": "Se muestra como nombre del dispositivo, en los widgets y en las escenas (60 caracteres como máximo)."
+          }
+        },
+        {
+          "key": "origin",
+          "type": "string",
+          "label": {
+            "en": "From",
+            "fr": "Départ",
+            "de": "Start",
+            "es": "Origen"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "1 place Bellecour, Lyon",
+            "fr": "1 place Bellecour, Lyon",
+            "de": "Marienplatz 1, München",
+            "es": "Puerta del Sol, Madrid"
+          },
+          "description": {
+            "en": "An address, “latitude, longitude” (such as 48.8584, 2.2945), “home” for the house of Gladys, or “@name” for one of its houses.",
+            "fr": "Une adresse, « latitude, longitude » (comme 48.8584, 2.2945), « maison » pour la maison de Gladys, ou « @nom » pour l’une de ses maisons.",
+            "de": "Eine Adresse, „Breite, Länge“ (wie 48.8584, 2.2945), „zuhause“ für das Haus von Gladys oder „@Name“ für eines ihrer Häuser.",
+            "es": "Una dirección, «latitud, longitud» (como 48.8584, 2.2945), «casa» para la casa de Gladys, o «@nombre» para una de sus casas."
+          }
+        },
+        {
+          "key": "destination",
+          "type": "string",
+          "label": {
+            "en": "To",
+            "fr": "Arrivée",
+            "de": "Ziel",
+            "es": "Destino"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "Part-Dieu station, Lyon",
+            "fr": "Gare Part-Dieu, Lyon",
+            "de": "Hauptbahnhof, München",
+            "es": "Estación de Atocha, Madrid"
+          },
+          "description": {
+            "en": "An address, “latitude, longitude” (such as 48.8584, 2.2945), “home” for the house of Gladys, or “@name” for one of its houses.",
+            "fr": "Une adresse, « latitude, longitude » (comme 48.8584, 2.2945), « maison » pour la maison de Gladys, ou « @nom » pour l’une de ses maisons.",
+            "de": "Eine Adresse, „Breite, Länge“ (wie 48.8584, 2.2945), „zuhause“ für das Haus von Gladys oder „@Name“ für eines ihrer Häuser.",
+            "es": "Una dirección, «latitud, longitud» (como 48.8584, 2.2945), «casa» para la casa de Gladys, o «@nombre» para una de sus casas."
+          }
+        },
+        {
+          "key": "mode",
+          "type": "select",
+          "label": {
+            "en": "Travel mode",
+            "fr": "Mode de déplacement",
+            "de": "Fortbewegungsart",
+            "es": "Modo de transporte"
+          },
+          "options": [
+            {
+              "value": "car",
+              "label": {
+                "en": "Car",
+                "fr": "Voiture",
+                "de": "Auto",
+                "es": "Coche"
+              }
+            },
+            {
+              "value": "truck",
+              "label": {
+                "en": "Truck",
+                "fr": "Camion",
+                "de": "Lkw",
+                "es": "Camión"
+              }
+            },
+            {
+              "value": "scooter",
+              "label": {
+                "en": "Scooter / motorcycle",
+                "fr": "Scooter / moto",
+                "de": "Roller / Motorrad",
+                "es": "Scooter / moto"
+              }
+            },
+            {
+              "value": "bicycle",
+              "label": {
+                "en": "Bicycle",
+                "fr": "Vélo",
+                "de": "Fahrrad",
+                "es": "Bicicleta"
+              }
+            },
+            {
+              "value": "pedestrian",
+              "label": {
+                "en": "Walking",
+                "fr": "À pied",
+                "de": "Zu Fuß",
+                "es": "A pie"
+              }
+            },
+            {
+              "value": "transit",
+              "label": {
+                "en": "Public transport",
+                "fr": "Transports en commun",
+                "de": "Öffentliche Verkehrsmittel",
+                "es": "Transporte público"
+              }
+            }
+          ],
+          "default": "car",
+          "description": {
+            "en": "Car (live traffic, unless turned off below), truck and scooter / motorcycle are read with live traffic; bicycle, walking and public transport without. Each mode has its own free monthly usage at HERE (see the configuration).",
+            "fr": "La voiture (trafic en temps réel, sauf si vous le coupez ci-dessous), le camion et le scooter / la moto sont mesurés avec le trafic ; le vélo, la marche et les transports en commun sans. Chaque mode a son propre usage mensuel gratuit chez HERE (voir la configuration).",
+            "de": "Auto (Live-Verkehr, außer Sie schalten ihn unten ab), Lkw und Roller / Motorrad werden mit Live-Verkehr gemessen; Fahrrad, zu Fuß und ÖPNV ohne. Jede Art hat bei HERE ihr eigenes kostenloses Monatskontingent (siehe Konfiguration).",
+            "es": "El coche (tráfico en tiempo real, salvo que lo desactive abajo), el camión y el scooter / la moto se miden con tráfico; la bicicleta, a pie y el transporte público sin él. Cada modo tiene su propio uso mensual gratuito en HERE (vea la configuración)."
+          }
+        },
+        {
+          "key": "traffic",
+          "type": "boolean",
+          "label": {
+            "en": "Live traffic (car)",
+            "fr": "Trafic en temps réel (voiture)",
+            "de": "Live-Verkehr (Auto)",
+            "es": "Tráfico en tiempo real (coche)"
+          },
+          "default": true,
+          "description": {
+            "en": "Car only. Off: no traffic delay, but 30,000 free requests a month instead of 5,000.",
+            "fr": "Voiture seulement. Désactivé : pas de retard dû au trafic, mais 30 000 requêtes gratuites par mois au lieu de 5 000.",
+            "de": "Nur Auto. Aus: keine Verkehrsverzögerung, dafür 30.000 kostenlose Anfragen im Monat statt 5.000.",
+            "es": "Solo coche. Desactivado: sin retraso por tráfico, pero 30 000 solicitudes gratuitas al mes en lugar de 5000."
+          }
+        },
+        {
+          "key": "avoid_tolls",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid tolls",
+            "fr": "Éviter les péages",
+            "de": "Mautstraßen vermeiden",
+            "es": "Evitar peajes"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only.",
+            "fr": "Voiture, camion et scooter seulement.",
+            "de": "Nur Auto, Lkw und Roller.",
+            "es": "Solo coche, camión y scooter."
+          }
+        },
+        {
+          "key": "avoid_highways",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid motorways",
+            "fr": "Éviter les autoroutes",
+            "de": "Autobahnen vermeiden",
+            "es": "Evitar autopistas"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only. A scooter / motorcycle uses motorways unless this is checked.",
+            "fr": "Voiture, camion et scooter seulement. Un scooter / une moto prend l’autoroute sauf si cette case est cochée.",
+            "de": "Nur Auto, Lkw und Roller. Ein Roller / Motorrad nutzt Autobahnen, außer dies ist aktiviert.",
+            "es": "Solo coche, camión y scooter. Un scooter / moto usa autopistas salvo que se marque esta opción."
+          }
+        },
+        {
+          "key": "avoid_ferries",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid ferries",
+            "fr": "Éviter les ferries",
+            "de": "Fähren vermeiden",
+            "es": "Evitar ferris"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only.",
+            "fr": "Voiture, camion et scooter seulement.",
+            "de": "Nur Auto, Lkw und Roller.",
+            "es": "Solo coche, camión y scooter."
+          }
+        },
+        {
+          "key": "days",
+          "type": "select",
+          "label": {
+            "en": "Days",
+            "fr": "Jours",
+            "de": "Tage",
+            "es": "Días"
+          },
+          "options": [
+            {
+              "value": "weekdays",
+              "label": {
+                "en": "Monday to Friday",
+                "fr": "Du lundi au vendredi",
+                "de": "Montag bis Freitag",
+                "es": "De lunes a viernes"
+              }
+            },
+            {
+              "value": "every_day",
+              "label": {
+                "en": "Every day",
+                "fr": "Tous les jours",
+                "de": "Täglich",
+                "es": "Todos los días"
+              }
+            },
+            {
+              "value": "mon_sat",
+              "label": {
+                "en": "Monday to Saturday",
+                "fr": "Du lundi au samedi",
+                "de": "Montag bis Samstag",
+                "es": "De lunes a sábado"
+              }
+            },
+            {
+              "value": "weekend",
+              "label": {
+                "en": "Weekends",
+                "fr": "Le week-end",
+                "de": "Am Wochenende",
+                "es": "Los fines de semana"
+              }
+            }
+          ],
+          "default": "weekdays"
+        },
+        {
+          "key": "hours",
+          "type": "string",
+          "label": {
+            "en": "Hours",
+            "fr": "Heures",
+            "de": "Uhrzeiten",
+            "es": "Horas"
+          },
+          "placeholder": {
+            "en": "6-10, 16-20",
+            "fr": "6-10, 16-20",
+            "de": "6-10, 16-20",
+            "es": "6-10, 16-20"
+          },
+          "description": {
+            "en": "When the trip is read, in the timezone of Gladys: up to four ranges such as “6-10, 16-20” or “7:30-9”; “0-24”: all day. Empty: 6-21.",
+            "fr": "Quand le trajet est mesuré, dans le fuseau horaire de Gladys : jusqu’à quatre plages comme « 6-10, 16-20 » ou « 7:30-9 » ; « 0-24 » : toute la journée. Vide : 6-21.",
+            "de": "Wann die Strecke gemessen wird, in der Zeitzone von Gladys: bis zu vier Bereiche wie „6-10, 16-20“ oder „7:30-9“; „0-24“: ganzer Tag. Leer: 6-21.",
+            "es": "Cuándo se mide el trayecto, en la zona horaria de Gladys: hasta cuatro franjas como «6-10, 16-20» o «7:30-9»; «0-24»: todo el día. Vacío: 6-21."
+          }
+        },
+        {
+          "key": "interval_minutes",
+          "type": "number",
+          "min": 5,
+          "max": 240,
+          "label": {
+            "en": "Every (minutes)",
+            "fr": "Toutes les (minutes)",
+            "de": "Alle (Minuten)",
+            "es": "Cada (minutos)"
+          },
+          "placeholder": {
+            "en": "15",
+            "fr": "15",
+            "de": "15",
+            "es": "15"
+          },
+          "description": {
+            "en": "Empty: the default interval of the configuration. Every reading is one request.",
+            "fr": "Vide : l’intervalle par défaut de la configuration. Chaque mesure est une requête.",
+            "de": "Leer: das Standardintervall der Konfiguration. Jede Messung ist eine Anfrage.",
+            "es": "Vacío: el intervalo por defecto de la configuración. Cada medida es una solicitud."
+          }
+        },
+        {
+          "key": "delay_threshold",
+          "type": "number",
+          "min": 1,
+          "max": 240,
+          "label": {
+            "en": "Delay threshold (minutes)",
+            "fr": "Seuil de retard (minutes)",
+            "de": "Verzögerungsschwelle (Minuten)",
+            "es": "Umbral de retraso (minutos)"
+          },
+          "placeholder": {
+            "en": "10",
+            "fr": "10",
+            "de": "10",
+            "es": "10"
+          },
+          "description": {
+            "en": "From this traffic delay, the trip shows in red in the widgets. Empty: the default threshold of the configuration.",
+            "fr": "À partir de ce retard, le trajet s’affiche en rouge dans les widgets. Vide : le seuil par défaut de la configuration.",
+            "de": "Ab dieser Verzögerung wird die Strecke in den Widgets rot angezeigt. Leer: die Standardschwelle der Konfiguration.",
+            "es": "A partir de este retraso, el trayecto se muestra en rojo en los widgets. Vacío: el umbral por defecto de la configuración."
+          }
+        }
+      ]
+    },
+    {
+      "key": "edit_trip",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Edit a trip",
+        "fr": "Modifier un trajet",
+        "de": "Strecke ändern",
+        "es": "Modificar un trayecto"
+      },
+      "description": {
+        "en": "Only the fields you fill in change.",
+        "fr": "Seuls les champs remplis changent.",
+        "de": "Nur die ausgefüllten Felder ändern sich.",
+        "es": "Solo cambian los campos que rellene."
+      },
+      "fields": [
+        {
+          "key": "trip",
+          "type": "string",
+          "label": {
+            "en": "Trip (name or number)",
+            "fr": "Trajet (nom ou numéro)",
+            "de": "Strecke (Name oder Nummer)",
+            "es": "Trayecto (nombre o número)"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "#1",
+            "fr": "#1",
+            "de": "#1",
+            "es": "#1"
+          },
+          "description": {
+            "en": "As shown by “List the trips”: the name, or the number such as #2.",
+            "fr": "Comme l’affiche « Lister les trajets » : le nom, ou le numéro comme #2.",
+            "de": "Wie „Strecken auflisten“ es anzeigt: der Name oder die Nummer wie #2.",
+            "es": "Como lo muestra «Listar los trayectos»: el nombre, o el número como #2."
+          }
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Name",
+            "fr": "Nom",
+            "de": "Name",
+            "es": "Nombre"
+          },
+          "placeholder": {
+            "en": "Work",
+            "fr": "Travail",
+            "de": "Arbeit",
+            "es": "Trabajo"
+          },
+          "description": {
+            "en": "Empty: unchanged.",
+            "fr": "Vide : inchangé.",
+            "de": "Leer: unverändert.",
+            "es": "Vacío: sin cambios."
+          }
+        },
+        {
+          "key": "origin",
+          "type": "string",
+          "label": {
+            "en": "From",
+            "fr": "Départ",
+            "de": "Start",
+            "es": "Origen"
+          },
+          "description": {
+            "en": "Empty: unchanged. The device keeps its history.",
+            "fr": "Vide : inchangé. L’appareil garde son historique.",
+            "de": "Leer: unverändert. Das Gerät behält seinen Verlauf.",
+            "es": "Vacío: sin cambios. El dispositivo conserva su historial."
+          }
+        },
+        {
+          "key": "destination",
+          "type": "string",
+          "label": {
+            "en": "To",
+            "fr": "Arrivée",
+            "de": "Ziel",
+            "es": "Destino"
+          },
+          "description": {
+            "en": "Empty: unchanged.",
+            "fr": "Vide : inchangé.",
+            "de": "Leer: unverändert.",
+            "es": "Vacío: sin cambios."
+          }
+        },
+        {
+          "key": "mode",
+          "type": "select",
+          "label": {
+            "en": "Travel mode",
+            "fr": "Mode de déplacement",
+            "de": "Fortbewegungsart",
+            "es": "Modo de transporte"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "car",
+              "label": {
+                "en": "Car",
+                "fr": "Voiture",
+                "de": "Auto",
+                "es": "Coche"
+              }
+            },
+            {
+              "value": "truck",
+              "label": {
+                "en": "Truck",
+                "fr": "Camion",
+                "de": "Lkw",
+                "es": "Camión"
+              }
+            },
+            {
+              "value": "scooter",
+              "label": {
+                "en": "Scooter / motorcycle",
+                "fr": "Scooter / moto",
+                "de": "Roller / Motorrad",
+                "es": "Scooter / moto"
+              }
+            },
+            {
+              "value": "bicycle",
+              "label": {
+                "en": "Bicycle",
+                "fr": "Vélo",
+                "de": "Fahrrad",
+                "es": "Bicicleta"
+              }
+            },
+            {
+              "value": "pedestrian",
+              "label": {
+                "en": "Walking",
+                "fr": "À pied",
+                "de": "Zu Fuß",
+                "es": "A pie"
+              }
+            },
+            {
+              "value": "transit",
+              "label": {
+                "en": "Public transport",
+                "fr": "Transports en commun",
+                "de": "Öffentliche Verkehrsmittel",
+                "es": "Transporte público"
+              }
+            }
+          ],
+          "default": "keep",
+          "description": {
+            "en": "A change between the modes with and without live traffic changes the features: “Update” on the Discover tab.",
+            "fr": "Un changement entre les modes avec et sans trafic change les fonctionnalités : « Mettre à jour » dans l’onglet Découverte.",
+            "de": "Ein Wechsel zwischen Arten mit und ohne Live-Verkehr ändert die Funktionen: „Aktualisieren“ im Tab Entdecken.",
+            "es": "Un cambio entre modos con y sin tráfico cambia las funciones: «Actualizar» en la pestaña Descubrir."
+          }
+        },
+        {
+          "key": "traffic",
+          "type": "select",
+          "label": {
+            "en": "Live traffic (car)",
+            "fr": "Trafic en temps réel (voiture)",
+            "de": "Live-Verkehr (Auto)",
+            "es": "Tráfico en tiempo real (coche)"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "yes",
+              "label": {
+                "en": "Yes",
+                "fr": "Oui",
+                "de": "Ja",
+                "es": "Sí"
+              }
+            },
+            {
+              "value": "no",
+              "label": {
+                "en": "No",
+                "fr": "Non",
+                "de": "Nein",
+                "es": "No"
+              }
+            }
+          ],
+          "default": "keep",
+          "description": {
+            "en": "Car only. Off: no traffic delay, but 30,000 free requests a month instead of 5,000.",
+            "fr": "Voiture seulement. Désactivé : pas de retard dû au trafic, mais 30 000 requêtes gratuites par mois au lieu de 5 000.",
+            "de": "Nur Auto. Aus: keine Verkehrsverzögerung, dafür 30.000 kostenlose Anfragen im Monat statt 5.000.",
+            "es": "Solo coche. Desactivado: sin retraso por tráfico, pero 30 000 solicitudes gratuitas al mes en lugar de 5000."
+          }
+        },
+        {
+          "key": "avoid_tolls",
+          "type": "select",
+          "label": {
+            "en": "Avoid tolls",
+            "fr": "Éviter les péages",
+            "de": "Mautstraßen vermeiden",
+            "es": "Evitar peajes"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "yes",
+              "label": {
+                "en": "Yes",
+                "fr": "Oui",
+                "de": "Ja",
+                "es": "Sí"
+              }
+            },
+            {
+              "value": "no",
+              "label": {
+                "en": "No",
+                "fr": "Non",
+                "de": "Nein",
+                "es": "No"
+              }
+            }
+          ],
+          "default": "keep"
+        },
+        {
+          "key": "avoid_highways",
+          "type": "select",
+          "label": {
+            "en": "Avoid motorways",
+            "fr": "Éviter les autoroutes",
+            "de": "Autobahnen vermeiden",
+            "es": "Evitar autopistas"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "yes",
+              "label": {
+                "en": "Yes",
+                "fr": "Oui",
+                "de": "Ja",
+                "es": "Sí"
+              }
+            },
+            {
+              "value": "no",
+              "label": {
+                "en": "No",
+                "fr": "Non",
+                "de": "Nein",
+                "es": "No"
+              }
+            }
+          ],
+          "default": "keep"
+        },
+        {
+          "key": "avoid_ferries",
+          "type": "select",
+          "label": {
+            "en": "Avoid ferries",
+            "fr": "Éviter les ferries",
+            "de": "Fähren vermeiden",
+            "es": "Evitar ferris"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "yes",
+              "label": {
+                "en": "Yes",
+                "fr": "Oui",
+                "de": "Ja",
+                "es": "Sí"
+              }
+            },
+            {
+              "value": "no",
+              "label": {
+                "en": "No",
+                "fr": "Non",
+                "de": "Nein",
+                "es": "No"
+              }
+            }
+          ],
+          "default": "keep"
+        },
+        {
+          "key": "days",
+          "type": "select",
+          "label": {
+            "en": "Days",
+            "fr": "Jours",
+            "de": "Tage",
+            "es": "Días"
+          },
+          "options": [
+            {
+              "value": "keep",
+              "label": {
+                "en": "Unchanged",
+                "fr": "Inchangé",
+                "de": "Unverändert",
+                "es": "Sin cambios"
+              }
+            },
+            {
+              "value": "weekdays",
+              "label": {
+                "en": "Monday to Friday",
+                "fr": "Du lundi au vendredi",
+                "de": "Montag bis Freitag",
+                "es": "De lunes a viernes"
+              }
+            },
+            {
+              "value": "every_day",
+              "label": {
+                "en": "Every day",
+                "fr": "Tous les jours",
+                "de": "Täglich",
+                "es": "Todos los días"
+              }
+            },
+            {
+              "value": "mon_sat",
+              "label": {
+                "en": "Monday to Saturday",
+                "fr": "Du lundi au samedi",
+                "de": "Montag bis Samstag",
+                "es": "De lunes a sábado"
+              }
+            },
+            {
+              "value": "weekend",
+              "label": {
+                "en": "Weekends",
+                "fr": "Le week-end",
+                "de": "Am Wochenende",
+                "es": "Los fines de semana"
+              }
+            }
+          ],
+          "default": "keep"
+        },
+        {
+          "key": "hours",
+          "type": "string",
+          "label": {
+            "en": "Hours",
+            "fr": "Heures",
+            "de": "Uhrzeiten",
+            "es": "Horas"
+          },
+          "placeholder": {
+            "en": "6-10, 16-20",
+            "fr": "6-10, 16-20",
+            "de": "6-10, 16-20",
+            "es": "6-10, 16-20"
+          },
+          "description": {
+            "en": "Empty: unchanged.",
+            "fr": "Vide : inchangé.",
+            "de": "Leer: unverändert.",
+            "es": "Vacío: sin cambios."
+          }
+        },
+        {
+          "key": "interval_minutes",
+          "type": "number",
+          "min": 0,
+          "max": 240,
+          "label": {
+            "en": "Every (minutes)",
+            "fr": "Toutes les (minutes)",
+            "de": "Alle (Minuten)",
+            "es": "Cada (minutos)"
+          },
+          "placeholder": {
+            "en": "15",
+            "fr": "15",
+            "de": "15",
+            "es": "15"
+          },
+          "description": {
+            "en": "Empty: unchanged; 0: the default of the configuration.",
+            "fr": "Vide : inchangé ; 0 : celui par défaut de la configuration.",
+            "de": "Leer: unverändert; 0: der Standard der Konfiguration.",
+            "es": "Vacío: sin cambios; 0: el de la configuración."
+          }
+        },
+        {
+          "key": "delay_threshold",
+          "type": "number",
+          "min": 0,
+          "max": 240,
+          "label": {
+            "en": "Delay threshold (minutes)",
+            "fr": "Seuil de retard (minutes)",
+            "de": "Verzögerungsschwelle (Minuten)",
+            "es": "Umbral de retraso (minutos)"
+          },
+          "placeholder": {
+            "en": "10",
+            "fr": "10",
+            "de": "10",
+            "es": "10"
+          },
+          "description": {
+            "en": "Empty: unchanged; 0: the default of the configuration.",
+            "fr": "Vide : inchangé ; 0 : celui par défaut de la configuration.",
+            "de": "Leer: unverändert; 0: der Standard der Konfiguration.",
+            "es": "Vacío: sin cambios; 0: el de la configuración."
+          }
+        }
+      ]
+    },
+    {
+      "key": "remove_trip",
+      "timeout_seconds": 15,
+      "label": {
+        "en": "Remove a trip",
+        "fr": "Supprimer un trajet",
+        "de": "Strecke entfernen",
+        "es": "Eliminar un trayecto"
+      },
+      "description": {
+        "en": "Its device stays in Gladys until you delete it from the Devices tab.",
+        "fr": "Son appareil reste dans Gladys jusqu’à ce que vous le supprimiez depuis l’onglet Appareils.",
+        "de": "Sein Gerät bleibt in Gladys, bis Sie es im Tab Geräte löschen.",
+        "es": "Su dispositivo permanece en Gladys hasta que lo elimine desde la pestaña Dispositivos."
+      },
+      "fields": [
+        {
+          "key": "trip",
+          "type": "string",
+          "label": {
+            "en": "Trip (name or number)",
+            "fr": "Trajet (nom ou numéro)",
+            "de": "Strecke (Name oder Nummer)",
+            "es": "Trayecto (nombre o número)"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "#1",
+            "fr": "#1",
+            "de": "#1",
+            "es": "#1"
+          },
+          "description": {
+            "en": "As shown by “List the trips”: the name, or the number such as #2.",
+            "fr": "Comme l’affiche « Lister les trajets » : le nom, ou le numéro comme #2.",
+            "de": "Wie „Strecken auflisten“ es anzeigt: der Name oder die Nummer wie #2.",
+            "es": "Como lo muestra «Listar los trayectos»: el nombre, o el número como #2."
+          }
+        }
+      ]
+    },
+    {
+      "key": "list_trips",
+      "timeout_seconds": 10,
+      "label": {
+        "en": "List the trips",
+        "fr": "Lister les trajets",
+        "de": "Strecken auflisten",
+        "es": "Listar los trayectos"
+      },
+      "description": {
+        "en": "Every trip with its number, its schedule, the requests it plans, its last reading and its last error.",
+        "fr": "Tous les trajets avec leur numéro, leur planning, les requêtes prévues, leur dernière mesure et leur dernière erreur.",
+        "de": "Alle Strecken mit Nummer, Zeitplan, geplanten Anfragen, letzter Messung und letztem Fehler.",
+        "es": "Todos los trayectos con su número, su horario, las solicitudes previstas, su última medida y su último error."
+      }
+    },
+    {
+      "key": "test_api_key",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Test the API key",
+        "fr": "Tester la clé d’API",
+        "de": "API-Schlüssel testen",
+        "es": "Probar la clave de API"
+      },
+      "description": {
+        "en": "Computes a short walk in Paris from coordinates: one “Routing” request, no geocoding.",
+        "fr": "Calcule une courte marche dans Paris à partir de coordonnées : une requête « Routage », sans géocodage.",
+        "de": "Berechnet einen kurzen Fußweg in Paris aus Koordinaten: eine „Routing“-Anfrage, ohne Geocodierung.",
+        "es": "Calcula un breve paseo en París a partir de coordenadas: una solicitud «Rutas», sin geocodificación."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "trips",
+      "icon": "navigation",
+      "label": {
+        "en": "Travel times",
+        "fr": "Temps de trajet",
+        "de": "Fahrzeiten",
+        "es": "Tiempos de trayecto"
+      },
+      "description": {
+        "en": "Your trips: travel time, traffic delay, distance, route or lines, and a refresh button.",
+        "fr": "Vos trajets : durée, retard, distance, itinéraire ou lignes, et un bouton d’actualisation.",
+        "de": "Ihre Strecken: Fahrzeit, Verzögerung, Entfernung, Route oder Linien und Aktualisieren.",
+        "es": "Sus trayectos: duración, retraso, distancia, ruta o líneas, y un botón de actualización."
+      },
+      "settings": [
+        {
+          "key": "trips",
+          "type": "multi_select",
+          "source": "devices",
+          "label": {
+            "en": "Trips",
+            "fr": "Trajets",
+            "de": "Strecken",
+            "es": "Trayectos"
+          },
+          "description": {
+            "en": "Empty: every trip (8 at most).",
+            "fr": "Vide : tous les trajets (8 au maximum).",
+            "de": "Leer: alle Strecken (höchstens 8).",
+            "es": "Vacío: todos los trayectos (8 como máximo)."
+          }
+        }
+      ]
+    },
+    {
+      "key": "trip",
+      "icon": "map-pin",
+      "label": {
+        "en": "Trip",
+        "fr": "Trajet",
+        "de": "Strecke",
+        "es": "Trayecto"
+      },
+      "description": {
+        "en": "One trip: travel time, traffic delay, distance, time without traffic and route.",
+        "fr": "Un trajet : durée, retard dû au trafic, distance, durée sans trafic et itinéraire.",
+        "de": "Eine Strecke: Fahrzeit, Verzögerung, Entfernung, Zeit ohne Verkehr und Route.",
+        "es": "Un trayecto: duración, retraso, distancia, duración sin tráfico y ruta."
+      },
+      "settings": [
+        {
+          "key": "trip",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Trip",
+            "fr": "Trajet",
+            "de": "Strecke",
+            "es": "Trayecto"
+          },
+          "required": true,
+          "description": {
+            "en": "Among the trips added as devices.",
+            "fr": "Parmi les trajets ajoutés comme appareils.",
+            "de": "Unter den als Geräte hinzugefügten Strecken.",
+            "es": "Entre los trayectos añadidos como dispositivos."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budget",
+      "icon": "bar-chart-2",
+      "label": {
+        "en": "HERE requests",
+        "fr": "Requêtes HERE",
+        "de": "HERE-Anfragen",
+        "es": "Solicitudes HERE"
+      },
+      "description": {
+        "en": "The requests of the month against the budget, per request type, and the state of the key.",
+        "fr": "Les requêtes du mois face au budget, par type de requête, et l’état de la clé.",
+        "de": "Die Anfragen des Monats im Vergleich zum Budget, je Anfrageart, und der Zustand des Schlüssels.",
+        "es": "Las solicitudes del mes frente al presupuesto, por tipo de solicitud, y el estado de la clave."
+      }
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "route_changed",
+      "label": {
+        "en": "The route of a trip changes",
+        "fr": "L’itinéraire d’un trajet change",
+        "de": "Die Route einer Strecke ändert sich",
+        "es": "La ruta de un trayecto cambia"
+      },
+      "description": {
+        "en": "At a scheduled reading, the fastest route goes by other roads (a closed road, an accident) or other lines than at the previous one.",
+        "fr": "À une mesure planifiée, l’itinéraire le plus rapide passe par d’autres routes (route fermée, accident) ou d’autres lignes qu’à la précédente.",
+        "de": "Bei einer geplanten Messung führt die schnellste Route über andere Straßen (gesperrte Straße, Unfall) oder andere Linien als bei der vorherigen.",
+        "es": "En una medida programada, la ruta más rápida pasa por otras carreteras (carretera cortada, accidente) u otras líneas que en la anterior."
+      },
+      "fields": [
+        {
+          "key": "trip",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Trip",
+            "fr": "Trajet",
+            "de": "Strecke",
+            "es": "Trayecto"
+          },
+          "description": {
+            "en": "Empty: every trip.",
+            "fr": "Vide : tous les trajets.",
+            "de": "Leer: alle Strecken.",
+            "es": "Vacío: todos los trayectos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Trip name",
+            "fr": "Nom du trajet",
+            "de": "Name der Strecke",
+            "es": "Nombre del trayecto"
+          }
+        },
+        {
+          "key": "route",
+          "type": "string",
+          "label": {
+            "en": "Route (main roads or lines)",
+            "fr": "Itinéraire (routes principales ou lignes)",
+            "de": "Route (Hauptstraßen oder Linien)",
+            "es": "Ruta (carreteras principales o líneas)"
+          }
+        },
+        {
+          "key": "previous_route",
+          "type": "string",
+          "label": {
+            "en": "Previous route",
+            "fr": "Itinéraire précédent",
+            "de": "Vorherige Route",
+            "es": "Ruta anterior"
+          }
+        },
+        {
+          "key": "duration",
+          "type": "number",
+          "label": {
+            "en": "Travel time (min)",
+            "fr": "Durée (min)",
+            "de": "Fahrzeit (Min.)",
+            "es": "Duración (min)"
+          }
+        },
+        {
+          "key": "traffic_delay",
+          "type": "number",
+          "label": {
+            "en": "Traffic delay (min)",
+            "fr": "Retard dû au trafic (min)",
+            "de": "Verkehrsverzögerung (Min.)",
+            "es": "Retraso por tráfico (min)"
+          }
+        },
+        {
+          "key": "distance",
+          "type": "number",
+          "label": {
+            "en": "Distance (km)",
+            "fr": "Distance (km)",
+            "de": "Entfernung (km)",
+            "es": "Distancia (km)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "budget_alert",
+      "label": {
+        "en": "The monthly budget is almost used",
+        "fr": "Le budget du mois est presque utilisé",
+        "de": "Das Monatsbudget ist fast verbraucht",
+        "es": "El presupuesto del mes está casi gastado"
+      },
+      "description": {
+        "en": "A request type reaches 80 % of its monthly budget, then 100 %: once each per month.",
+        "fr": "Un type de requête atteint 80 % de son budget mensuel, puis 100 % : une fois chacun par mois.",
+        "de": "Eine Anfrageart erreicht 80 % ihres Monatsbudgets, dann 100 %: je einmal pro Monat.",
+        "es": "Un tipo de solicitud alcanza el 80 % de su presupuesto mensual y luego el 100 %: una vez cada uno al mes."
+      },
+      "fields": [
+        {
+          "key": "level",
+          "type": "select",
+          "label": {
+            "en": "Level",
+            "fr": "Niveau",
+            "de": "Stufe",
+            "es": "Nivel"
+          },
+          "options": [
+            {
+              "value": "warning",
+              "label": {
+                "en": "80 % used",
+                "fr": "80 % utilisés",
+                "de": "80 % verbraucht",
+                "es": "80 % gastado"
+              }
+            },
+            {
+              "value": "exhausted",
+              "label": {
+                "en": "Fully used",
+                "fr": "Entièrement utilisé",
+                "de": "Ganz verbraucht",
+                "es": "Gastado del todo"
+              }
+            }
+          ],
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beide.",
+            "es": "Vacío: ambos."
+          }
+        },
+        {
+          "key": "sku",
+          "type": "select",
+          "label": {
+            "en": "Request type",
+            "fr": "Type de requête",
+            "de": "Anfrageart",
+            "es": "Tipo de solicitud"
+          },
+          "options": [
+            {
+              "value": "time_aware",
+              "label": {
+                "en": "Car with live traffic",
+                "fr": "Voiture avec trafic",
+                "de": "Auto mit Verkehr",
+                "es": "Coche con tráfico"
+              }
+            },
+            {
+              "value": "routing",
+              "label": {
+                "en": "Car without traffic, bicycle, walking",
+                "fr": "Voiture sans trafic, vélo, marche",
+                "de": "Auto ohne Verkehr, Fahrrad, zu Fuß",
+                "es": "Coche sin tráfico, bicicleta, a pie"
+              }
+            },
+            {
+              "value": "truck",
+              "label": {
+                "en": "Truck",
+                "fr": "Camion",
+                "de": "Lkw",
+                "es": "Camión"
+              }
+            },
+            {
+              "value": "scooter",
+              "label": {
+                "en": "Scooter / motorcycle",
+                "fr": "Scooter / moto",
+                "de": "Roller / Motorrad",
+                "es": "Scooter / moto"
+              }
+            },
+            {
+              "value": "transit",
+              "label": {
+                "en": "Public transport",
+                "fr": "Transports en commun",
+                "de": "Öffentliche Verkehrsmittel",
+                "es": "Transporte público"
+              }
+            },
+            {
+              "value": "geocode",
+              "label": {
+                "en": "Geocoding",
+                "fr": "Géocodage",
+                "de": "Geocodierung",
+                "es": "Geocodificación"
+              }
+            }
+          ],
+          "description": {
+            "en": "Empty: every type.",
+            "fr": "Vide : tous les types.",
+            "de": "Leer: alle Arten.",
+            "es": "Vacío: todos los tipos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "level",
+          "type": "string",
+          "label": {
+            "en": "Level (warning or exhausted)",
+            "fr": "Niveau (warning ou exhausted)",
+            "de": "Stufe (warning oder exhausted)",
+            "es": "Nivel (warning o exhausted)"
+          }
+        },
+        {
+          "key": "sku",
+          "type": "string",
+          "label": {
+            "en": "Request type",
+            "fr": "Type de requête",
+            "de": "Anfrageart",
+            "es": "Tipo de solicitud"
+          }
+        },
+        {
+          "key": "used",
+          "type": "number",
+          "label": {
+            "en": "Requests used",
+            "fr": "Requêtes utilisées",
+            "de": "Verbrauchte Anfragen",
+            "es": "Solicitudes usadas"
+          }
+        },
+        {
+          "key": "budget",
+          "type": "number",
+          "label": {
+            "en": "Monthly budget",
+            "fr": "Budget mensuel",
+            "de": "Monatsbudget",
+            "es": "Presupuesto mensual"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key_refused",
+      "label": {
+        "en": "HERE refuses the API key",
+        "fr": "HERE refuse la clé d’API",
+        "de": "HERE lehnt den API-Schlüssel ab",
+        "es": "HERE rechaza la clave de API"
+      },
+      "description": {
+        "en": "Missing, invalid or deleted key, credentials not allowed: once, until a request works again.",
+        "fr": "Clé absente, invalide ou supprimée, accès non autorisé : une fois, jusqu’à ce qu’une requête fonctionne de nouveau.",
+        "de": "Fehlender, ungültiger oder gelöschter Schlüssel, Zugriff nicht erlaubt: einmal, bis eine Anfrage wieder funktioniert.",
+        "es": "Clave ausente, no válida o eliminada, acceso no permitido: una vez, hasta que una solicitud vuelva a funcionar."
+      },
+      "variables": [
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason (API_KEY_INVALID, FORBIDDEN…)",
+            "fr": "Raison (API_KEY_INVALID, FORBIDDEN…)",
+            "de": "Grund (API_KEY_INVALID, FORBIDDEN…)",
+            "es": "Motivo (API_KEY_INVALID, FORBIDDEN…)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "compute_route",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Compute a route",
+        "fr": "Calculer un itinéraire",
+        "de": "Route berechnen",
+        "es": "Calcular una ruta"
+      },
+      "description": {
+        "en": "Travel time now between two places, for a message or a decision (one request, plus a geocoding for a new address).",
+        "fr": "Durée du trajet maintenant entre deux lieux, pour un message ou une décision (une requête, plus un géocodage pour une nouvelle adresse).",
+        "de": "Fahrzeit jetzt zwischen zwei Orten, für eine Nachricht oder eine Entscheidung (eine Anfrage, plus eine Geocodierung für eine neue Adresse).",
+        "es": "Duración del trayecto ahora entre dos lugares, para un mensaje o una decisión (una solicitud, más una geocodificación para una dirección nueva)."
+      },
+      "fields": [
+        {
+          "key": "origin",
+          "type": "string",
+          "label": {
+            "en": "From",
+            "fr": "Départ",
+            "de": "Start",
+            "es": "Origen"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "1 place Bellecour, Lyon",
+            "fr": "1 place Bellecour, Lyon",
+            "de": "Marienplatz 1, München",
+            "es": "Puerta del Sol, Madrid"
+          },
+          "description": {
+            "en": "An address, “latitude, longitude” (such as 48.8584, 2.2945), “home” for the house of Gladys, or “@name” for one of its houses.",
+            "fr": "Une adresse, « latitude, longitude » (comme 48.8584, 2.2945), « maison » pour la maison de Gladys, ou « @nom » pour l’une de ses maisons.",
+            "de": "Eine Adresse, „Breite, Länge“ (wie 48.8584, 2.2945), „zuhause“ für das Haus von Gladys oder „@Name“ für eines ihrer Häuser.",
+            "es": "Una dirección, «latitud, longitud» (como 48.8584, 2.2945), «casa» para la casa de Gladys, o «@nombre» para una de sus casas."
+          }
+        },
+        {
+          "key": "destination",
+          "type": "string",
+          "label": {
+            "en": "To",
+            "fr": "Arrivée",
+            "de": "Ziel",
+            "es": "Destino"
+          },
+          "required": true,
+          "placeholder": {
+            "en": "Part-Dieu station, Lyon",
+            "fr": "Gare Part-Dieu, Lyon",
+            "de": "Hauptbahnhof, München",
+            "es": "Estación de Atocha, Madrid"
+          },
+          "description": {
+            "en": "An address, “latitude, longitude” (such as 48.8584, 2.2945), “home” for the house of Gladys, or “@name” for one of its houses.",
+            "fr": "Une adresse, « latitude, longitude » (comme 48.8584, 2.2945), « maison » pour la maison de Gladys, ou « @nom » pour l’une de ses maisons.",
+            "de": "Eine Adresse, „Breite, Länge“ (wie 48.8584, 2.2945), „zuhause“ für das Haus von Gladys oder „@Name“ für eines ihrer Häuser.",
+            "es": "Una dirección, «latitud, longitud» (como 48.8584, 2.2945), «casa» para la casa de Gladys, o «@nombre» para una de sus casas."
+          }
+        },
+        {
+          "key": "mode",
+          "type": "select",
+          "label": {
+            "en": "Travel mode",
+            "fr": "Mode de déplacement",
+            "de": "Fortbewegungsart",
+            "es": "Modo de transporte"
+          },
+          "options": [
+            {
+              "value": "car",
+              "label": {
+                "en": "Car",
+                "fr": "Voiture",
+                "de": "Auto",
+                "es": "Coche"
+              }
+            },
+            {
+              "value": "truck",
+              "label": {
+                "en": "Truck",
+                "fr": "Camion",
+                "de": "Lkw",
+                "es": "Camión"
+              }
+            },
+            {
+              "value": "scooter",
+              "label": {
+                "en": "Scooter / motorcycle",
+                "fr": "Scooter / moto",
+                "de": "Roller / Motorrad",
+                "es": "Scooter / moto"
+              }
+            },
+            {
+              "value": "bicycle",
+              "label": {
+                "en": "Bicycle",
+                "fr": "Vélo",
+                "de": "Fahrrad",
+                "es": "Bicicleta"
+              }
+            },
+            {
+              "value": "pedestrian",
+              "label": {
+                "en": "Walking",
+                "fr": "À pied",
+                "de": "Zu Fuß",
+                "es": "A pie"
+              }
+            },
+            {
+              "value": "transit",
+              "label": {
+                "en": "Public transport",
+                "fr": "Transports en commun",
+                "de": "Öffentliche Verkehrsmittel",
+                "es": "Transporte público"
+              }
+            }
+          ],
+          "default": "car"
+        },
+        {
+          "key": "traffic",
+          "type": "boolean",
+          "label": {
+            "en": "Live traffic (car)",
+            "fr": "Trafic en temps réel (voiture)",
+            "de": "Live-Verkehr (Auto)",
+            "es": "Tráfico en tiempo real (coche)"
+          },
+          "default": true,
+          "description": {
+            "en": "Car only. Off: no traffic delay, but 30,000 free requests a month instead of 5,000.",
+            "fr": "Voiture seulement. Désactivé : pas de retard dû au trafic, mais 30 000 requêtes gratuites par mois au lieu de 5 000.",
+            "de": "Nur Auto. Aus: keine Verkehrsverzögerung, dafür 30.000 kostenlose Anfragen im Monat statt 5.000.",
+            "es": "Solo coche. Desactivado: sin retraso por tráfico, pero 30 000 solicitudes gratuitas al mes en lugar de 5000."
+          }
+        },
+        {
+          "key": "avoid_tolls",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid tolls",
+            "fr": "Éviter les péages",
+            "de": "Mautstraßen vermeiden",
+            "es": "Evitar peajes"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only.",
+            "fr": "Voiture, camion et scooter seulement.",
+            "de": "Nur Auto, Lkw und Roller.",
+            "es": "Solo coche, camión y scooter."
+          }
+        },
+        {
+          "key": "avoid_highways",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid motorways",
+            "fr": "Éviter les autoroutes",
+            "de": "Autobahnen vermeiden",
+            "es": "Evitar autopistas"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only. A scooter / motorcycle uses motorways unless this is checked.",
+            "fr": "Voiture, camion et scooter seulement. Un scooter / une moto prend l’autoroute sauf si cette case est cochée.",
+            "de": "Nur Auto, Lkw und Roller. Ein Roller / Motorrad nutzt Autobahnen, außer dies ist aktiviert.",
+            "es": "Solo coche, camión y scooter. Un scooter / moto usa autopistas salvo que se marque esta opción."
+          }
+        },
+        {
+          "key": "avoid_ferries",
+          "type": "boolean",
+          "label": {
+            "en": "Avoid ferries",
+            "fr": "Éviter les ferries",
+            "de": "Fähren vermeiden",
+            "es": "Evitar ferris"
+          },
+          "default": false,
+          "description": {
+            "en": "Car, truck and scooter only.",
+            "fr": "Voiture, camion et scooter seulement.",
+            "de": "Nur Auto, Lkw und Roller.",
+            "es": "Solo coche, camión y scooter."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "duration",
+          "type": "number",
+          "label": {
+            "en": "Travel time (min)",
+            "fr": "Durée (min)",
+            "de": "Fahrzeit (Min.)",
+            "es": "Duración (min)"
+          }
+        },
+        {
+          "key": "duration_no_traffic",
+          "type": "number",
+          "label": {
+            "en": "Travel time without traffic (min)",
+            "fr": "Durée sans trafic (min)",
+            "de": "Fahrzeit ohne Verkehr (Min.)",
+            "es": "Duración sin tráfico (min)"
+          }
+        },
+        {
+          "key": "traffic_delay",
+          "type": "number",
+          "label": {
+            "en": "Traffic delay (min)",
+            "fr": "Retard dû au trafic (min)",
+            "de": "Verkehrsverzögerung (Min.)",
+            "es": "Retraso por tráfico (min)"
+          }
+        },
+        {
+          "key": "distance",
+          "type": "number",
+          "label": {
+            "en": "Distance (km)",
+            "fr": "Distance (km)",
+            "de": "Entfernung (km)",
+            "es": "Distancia (km)"
+          }
+        },
+        {
+          "key": "route",
+          "type": "string",
+          "label": {
+            "en": "Route (main roads or lines)",
+            "fr": "Itinéraire (routes principales ou lignes)",
+            "de": "Route (Hauptstraßen oder Linien)",
+            "es": "Ruta (carreteras principales o líneas)"
+          }
+        },
+        {
+          "key": "departure_time",
+          "type": "string",
+          "label": {
+            "en": "Departure time (HH:MM, first line by public transport)",
+            "fr": "Heure de départ (HH:MM, première ligne en transports)",
+            "de": "Abfahrtszeit (HH:MM, erste Linie im ÖPNV)",
+            "es": "Hora de salida (HH:MM, primera línea en transporte)"
+          }
+        },
+        {
+          "key": "arrival_time",
+          "type": "string",
+          "label": {
+            "en": "Arrival time (HH:MM)",
+            "fr": "Heure d’arrivée (HH:MM)",
+            "de": "Ankunftszeit (HH:MM)",
+            "es": "Hora de llegada (HH:MM)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "refresh_trip",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Read a trip now",
+        "fr": "Mesurer un trajet maintenant",
+        "de": "Strecke jetzt messen",
+        "es": "Medir un trayecto ahora"
+      },
+      "description": {
+        "en": "Reads a trip now, outside its hours too, and updates its device (one request, none if read less than a minute ago).",
+        "fr": "Mesure un trajet maintenant, même hors de ses heures, et met à jour son appareil (une requête, aucune s’il a été mesuré il y a moins d’une minute).",
+        "de": "Misst eine Strecke jetzt, auch außerhalb ihrer Zeiten, und aktualisiert ihr Gerät (eine Anfrage, keine bei Messung vor unter einer Minute).",
+        "es": "Mide un trayecto ahora, también fuera de sus horas, y actualiza su dispositivo (una solicitud, ninguna si se midió hace menos de un minuto)."
+      },
+      "fields": [
+        {
+          "key": "trip",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Trip",
+            "fr": "Trajet",
+            "de": "Strecke",
+            "es": "Trayecto"
+          },
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "key": "duration",
+          "type": "number",
+          "label": {
+            "en": "Travel time (min)",
+            "fr": "Durée (min)",
+            "de": "Fahrzeit (Min.)",
+            "es": "Duración (min)"
+          }
+        },
+        {
+          "key": "duration_no_traffic",
+          "type": "number",
+          "label": {
+            "en": "Travel time without traffic (min)",
+            "fr": "Durée sans trafic (min)",
+            "de": "Fahrzeit ohne Verkehr (Min.)",
+            "es": "Duración sin tráfico (min)"
+          }
+        },
+        {
+          "key": "traffic_delay",
+          "type": "number",
+          "label": {
+            "en": "Traffic delay (min)",
+            "fr": "Retard dû au trafic (min)",
+            "de": "Verkehrsverzögerung (Min.)",
+            "es": "Retraso por tráfico (min)"
+          }
+        },
+        {
+          "key": "distance",
+          "type": "number",
+          "label": {
+            "en": "Distance (km)",
+            "fr": "Distance (km)",
+            "de": "Entfernung (km)",
+            "es": "Distancia (km)"
+          }
+        },
+        {
+          "key": "route",
+          "type": "string",
+          "label": {
+            "en": "Route (main roads or lines)",
+            "fr": "Itinéraire (routes principales ou lignes)",
+            "de": "Route (Hauptstraßen oder Linien)",
+            "es": "Ruta (carreteras principales o líneas)"
+          }
+        },
+        {
+          "key": "departure_time",
+          "type": "string",
+          "label": {
+            "en": "Departure time (HH:MM, first line by public transport)",
+            "fr": "Heure de départ (HH:MM, première ligne en transports)",
+            "de": "Abfahrtszeit (HH:MM, erste Linie im ÖPNV)",
+            "es": "Hora de salida (HH:MM, primera línea en transporte)"
+          }
+        },
+        {
+          "key": "arrival_time",
+          "type": "string",
+          "label": {
+            "en": "Arrival time (HH:MM)",
+            "fr": "Heure d’arrivée (HH:MM)",
+            "de": "Ankunftszeit (HH:MM)",
+            "es": "Hora de llegada (HH:MM)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ]
+}

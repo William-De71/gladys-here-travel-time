@@ -1,0 +1,11 @@
+Gladys HERE Travel Time integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It calls the HERE Routing API v8, the HERE Public Transit API v8 and the HERE
+Geocoding & Search API v7 with the API key of the user, who accepts the terms
+of the HERE platform. HERE is a trademark of HERE Global B.V.; this integration
+is not affiliated with nor endorsed by HERE Technologies. The ergonomics follow
+the Home Assistant "HERE Travel Time" integration (Apache-2.0); no code is taken
+from it.

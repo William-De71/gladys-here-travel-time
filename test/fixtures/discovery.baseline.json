@@ -1,0 +1,385 @@
+{
+  "devices": {
+    "traffic": {
+      "external_id": "ext:test-integration:trip:a1b2c3d4",
+      "should_poll": false,
+      "params": ["ORIGIN", "DESTINATION", "MODE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:trip:a1b2c3d4:duration",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 6000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:a1b2c3d4:duration_no_traffic",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 6000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:a1b2c3d4:traffic_delay",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 6000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:a1b2c3d4:distance",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "km",
+          "min": 0,
+          "max": 40000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:a1b2c3d4:route",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "no_traffic": {
+      "external_id": "ext:test-integration:trip:b2c3d4e5",
+      "should_poll": false,
+      "params": ["ORIGIN", "DESTINATION", "MODE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:trip:b2c3d4e5:duration",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 6000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:b2c3d4e5:distance",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "km",
+          "min": 0,
+          "max": 40000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:b2c3d4e5:route",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "transit": {
+      "external_id": "ext:test-integration:trip:d4e5f6a7",
+      "should_poll": false,
+      "params": ["ORIGIN", "DESTINATION", "MODE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:trip:d4e5f6a7:duration",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 6000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:d4e5f6a7:distance",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "km",
+          "min": 0,
+          "max": 40000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:trip:d4e5f6a7:route",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "api_key",
+        "type": "secret"
+      },
+      {
+        "key": "refresh_minutes",
+        "type": "number"
+      },
+      {
+        "key": "delay_threshold",
+        "type": "number"
+      },
+      {
+        "key": "budget_percent",
+        "type": "number"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "actions": ["add_trip", "edit_trip", "remove_trip", "list_trips", "test_api_key"],
+    "action_fields": {
+      "add_trip": [
+        "name",
+        "origin",
+        "destination",
+        "mode",
+        "traffic",
+        "avoid_tolls",
+        "avoid_highways",
+        "avoid_ferries",
+        "days",
+        "hours",
+        "interval_minutes",
+        "delay_threshold"
+      ],
+      "edit_trip": [
+        "trip",
+        "name",
+        "origin",
+        "destination",
+        "mode",
+        "traffic",
+        "avoid_tolls",
+        "avoid_highways",
+        "avoid_ferries",
+        "days",
+        "hours",
+        "interval_minutes",
+        "delay_threshold"
+      ],
+      "remove_trip": ["trip"],
+      "list_trips": [],
+      "test_api_key": []
+    },
+    "widgets": [
+      {
+        "key": "trips",
+        "settings": ["trips"]
+      },
+      {
+        "key": "trip",
+        "settings": ["trip"]
+      },
+      {
+        "key": "budget",
+        "settings": []
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "route_changed",
+        "fields": [
+          {
+            "key": "trip",
+            "options": []
+          }
+        ],
+        "variables": [
+          {
+            "key": "name",
+            "type": "string"
+          },
+          {
+            "key": "route",
+            "type": "string"
+          },
+          {
+            "key": "previous_route",
+            "type": "string"
+          },
+          {
+            "key": "duration",
+            "type": "number"
+          },
+          {
+            "key": "traffic_delay",
+            "type": "number"
+          },
+          {
+            "key": "distance",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "budget_alert",
+        "fields": [
+          {
+            "key": "level",
+            "options": ["warning", "exhausted"]
+          },
+          {
+            "key": "sku",
+            "options": ["time_aware", "routing", "truck", "scooter", "transit", "geocode"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "level",
+            "type": "string"
+          },
+          {
+            "key": "sku",
+            "type": "string"
+          },
+          {
+            "key": "used",
+            "type": "number"
+          },
+          {
+            "key": "budget",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "api_key_refused",
+        "fields": [],
+        "variables": [
+          {
+            "key": "reason",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "compute_route",
+        "fields": [
+          "origin",
+          "destination",
+          "mode",
+          "traffic",
+          "avoid_tolls",
+          "avoid_highways",
+          "avoid_ferries"
+        ],
+        "outputs": [
+          {
+            "key": "duration",
+            "type": "number"
+          },
+          {
+            "key": "duration_no_traffic",
+            "type": "number"
+          },
+          {
+            "key": "traffic_delay",
+            "type": "number"
+          },
+          {
+            "key": "distance",
+            "type": "number"
+          },
+          {
+            "key": "route",
+            "type": "string"
+          },
+          {
+            "key": "departure_time",
+            "type": "string"
+          },
+          {
+            "key": "arrival_time",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "refresh_trip",
+        "fields": ["trip"],
+        "outputs": [
+          {
+            "key": "duration",
+            "type": "number"
+          },
+          {
+            "key": "duration_no_traffic",
+            "type": "number"
+          },
+          {
+            "key": "traffic_delay",
+            "type": "number"
+          },
+          {
+            "key": "distance",
+            "type": "number"
+          },
+          {
+            "key": "route",
+            "type": "string"
+          },
+          {
+            "key": "departure_time",
+            "type": "string"
+          },
+          {
+            "key": "arrival_time",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
